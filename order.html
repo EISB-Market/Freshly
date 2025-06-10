@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Order | Freshly</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22><text y=%2214%22 font-size=%2216%22>💧</text></svg>" />
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -12,20 +13,20 @@
       margin: 0;
       padding: 0;
     }
-
     header {
       background-color: #007BFF;
       color: white;
       padding: 1.5rem;
       text-align: center;
     }
-
+    header h1 {
+      font-size: 2.5rem;
+    }
     .container {
       max-width: 600px;
       margin: 2rem auto;
       padding: 1rem;
     }
-
     input, select, button {
       width: 100%;
       padding: 0.75rem;
@@ -34,18 +35,15 @@
       border-radius: 8px;
       font-size: 1rem;
     }
-
     button {
       background-color: #007BFF;
       color: white;
       cursor: pointer;
       font-weight: bold;
     }
-
     button:hover {
       background-color: #0056b3;
     }
-
     .thank-you {
       background-color: #e0f7ff;
       padding: 2rem;
@@ -54,13 +52,11 @@
       display: none;
       margin-top: 2rem;
     }
-
     .back-button {
       display: block;
       margin: 2rem auto 0;
       text-align: center;
     }
-
     .back-button a {
       display: inline-block;
       padding: 0.8rem 1.5rem;
@@ -70,7 +66,6 @@
       border-radius: 8px;
       font-weight: bold;
     }
-
     .back-button a:hover {
       background-color: #0056b3;
     }
@@ -78,13 +73,13 @@
 </head>
 <body>
   <header>
-    <h1>Place Your Order 💧</h1>
+    <h1><span style="font-size: 3rem; vertical-align: middle; margin-right: 0.3rem;">💧</span>Place Your Order</h1>
     <p>Freshly at EISB</p>
   </header>
 
   <div class="container">
     <label for="name">Your Name:</label>
-    <input type="text" id="name" placeholder="Type your name..." required>
+    <input type="text" id="name" placeholder="Type your name..." required />
 
     <label for="item">Choose Item:</label>
     <select id="item">
@@ -118,7 +113,7 @@
         return;
       }
 
-      const webhookURL = "https://discord.com/api/webhooks/1382143063069167626/oqX5gN5nDF6PS-MYves-LgkReNBNmsnUTc0aaRI3V3-YLEtAm7WruCIDo0f8_7SKBgmi"; // Replace with your actual webhook
+      const webhookURL = "YOUR_DISCORD_WEBHOOK_URL"; // Replace with your actual webhook
 
       const message = {
         content: `📦 New Freshly Order!\n👤 Name: ${name}\n🧊 Item: ${item}`
@@ -130,12 +125,14 @@
           "Content-Type": "application/json"
         },
         body: JSON.stringify(message)
-      }).then(() => {
-        document.getElementById("thankYou").style.display = "block";
-      }).catch((error) => {
-        alert("Failed to send order.");
-        console.error(error);
-      });
+      })
+        .then(() => {
+          document.getElementById("thankYou").style.display = "block";
+        })
+        .catch((error) => {
+          alert("Failed to send order.");
+          console.error(error);
+        });
     }
   </script>
 </body>
