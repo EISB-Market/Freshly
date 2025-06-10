@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order | Freshly</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #ffffff;
+      color: #003366;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #007BFF;
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 1rem;
+      border: 1px solid #007BFF;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #007BFF;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .thank-you {
+      background-color: #e0f7ff;
+      padding: 2rem;
+      text-align: center;
+      border-radius: 10px;
+      display: none;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Place Your Order 💧</h1>
+    <p>Freshly at EISB</p>
+  </header>
+
+  <div class="container">
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" placeholder="Type your name..." required>
+
+    <label for="item">Choose Item:</label>
+    <select id="item">
+      <option value="Small Water (250 IQD)">Small Water – 250 IQD</option>
+      <option value="Normal-Sized Water (500 IQD)">Normal-Sized Water – 500 IQD</option>
+      <option value="Big Water (750 IQD)">Big Water – 750 IQD</option>
+      <option value="Two Normal Waters (750 IQD)">Two Normal Waters – 750 IQD</option>
+      <option value="Two Big Waters (1,000 IQD)">Two Big Waters – 1,000 IQD</option>
+      <option value="Freshly Subscription (10,000 IQD)">Freshly Subscription – 10,000 IQD</option>
+    </select>
+
+    <button onclick="submitOrder()">Order Now</button>
+
+    <div class="thank-you" id="thankYou">
+      <h2>Thank you for your order!</h2>
+      <p>We'll deliver it to you very soon. Stay fresh 💧</p>
+    </div>
+  </div>
+
+  <script>
+    function submitOrder() {
+      const name = document.getElementById("name").value.trim();
+      const item = document.getElementById("item").value;
+
+      if (!name) {
+        alert("Please enter your name.");
+        return;
+      }
+
+      // Replace this with your actual Discord webhook URL
+      const webhookURL = "YOUR_DISCORD_WEBHOOK_URL";
+
+      const message = {
+        content: `📦 New Freshly Order!\n👤 Name: ${name}\n🧊 Item: ${item}`
+      };
+
+      fetch(webhookURL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(message)
+      }).then(() => {
+        document.getElementById("thankYou").style.display = "block";
+      }).catch((error) => {
+        alert("Failed to send order.");
+        console.error(error);
+      });
+    }
+  </script>
+</body>
+</html>
