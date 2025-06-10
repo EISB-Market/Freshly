@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Freshly | EISB Black Market</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22><text y=%2214%22 font-size=%2216%22>💧</text></svg>" />
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -11,25 +12,29 @@
       background-color: #ffffff;
       color: #003366;
     }
-
     header {
       background-color: #007BFF;
       color: white;
       padding: 1.5rem;
       text-align: center;
     }
-
+    header h1 {
+      font-size: 2.5rem;
+    }
+    header h1 span.logo {
+      font-size: 3rem;
+      vertical-align: middle;
+      margin-right: 0.3rem;
+    }
     .container {
       padding: 2rem;
       max-width: 800px;
       margin: auto;
     }
-
     h2 {
       border-bottom: 2px solid #007BFF;
       padding-bottom: 0.5rem;
     }
-
     .menu-item, .combo-item, .sub {
       background-color: #f0f8ff;
       padding: 1rem;
@@ -37,7 +42,6 @@
       border-radius: 10px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
-
     .order-button {
       display: block;
       width: fit-content;
@@ -52,11 +56,9 @@
       font-size: 1.2rem;
       transition: background-color 0.3s ease;
     }
-
     .order-button:hover {
       background-color: #0056b3;
     }
-
     footer {
       background-color: #003366;
       color: white;
@@ -68,7 +70,7 @@
 </head>
 <body>
   <header>
-    <h1>Freshly 💧</h1>
+    <h1><span class="logo">💧</span>Freshly</h1>
     <p><em>“Always Fresh. Always Cool.”</em></p>
     <p><strong>By Haidar Ali – Founder of EISB’s Coolest Market</strong></p>
   </header>
@@ -76,7 +78,7 @@
   <div class="container">
     <section>
       <h2>About Us</h2>
-      <p>Freshly is your secret source for icy-cold hydration right at the heart of English International School Baghdad (EISB). We're known for selling *only* cold water – nothing less.</p>
+      <p>Freshly is your secret source for icy-cold hydration right at the heart of English International School Baghdad (EISB). We're known for selling <em>only</em> cold water – nothing less.</p>
     </section>
 
     <section>
@@ -95,7 +97,7 @@
     <section>
       <h2>Subscriptions</h2>
       <div class="sub">
-        <strong>Freshly Pass – 10,000 IQD</strong><br>
+        <strong>Freshly Pass – 10,000 IQD</strong><br />
         Get 3 cold bottles per day for 10 days. Perfect for water lovers who don’t like dry mouths.
       </div>
     </section>
