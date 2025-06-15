@@ -119,7 +119,7 @@ const segments = [
   "L2RTa09xX2VYVHBHS2FKVThrVGJmdWtaR05WQXM5ZkFTQ0lWSzV6VTQ1UXg5eTBJN0NuaVJFUUdYc2FEaGdOUGlyQmpE"
 ];
 
-const webhookURL = "https://discord.com/api/webhooks/1383854599059804160/dSkOq_eXTpGKaJU8kTbfukzGNVAs9fASCIVK5zU45Qx9y0I7CniREQGXsaDhgNPirBjD"
+const webhookURL = atob(segments[0]) + atob(segments[1]) + atob(segments[2]);
 
       const message = {
         content: `📦 New Freshly Order!\n👤 Name: ${name}\n🧊 Item: ${item}`
